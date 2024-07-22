@@ -1,0 +1,33 @@
+<!-- Sidebar menu starts -->
+<div class="sidebarMenuScroll">
+  <ul class="sidebar-menu">
+    @for (item of sidebarItems; track $index) {
+      @if (item.children) {
+        <li>
+          <a [routerLink]="item?.link">
+            <i [class]="item?.icon ?? 'ri-home-6-line'"></i>
+            <span class="menu-text">{{item?.title}}</span>
+          </a>
+          <ul class="sidebar-menu">
+            @for (a of item.children; track $index) {
+              <li class="ms-3">
+                <a [routerLink]="a?.link">
+                  <span class="menu-text">{{a?.title}}</span>
+                </a>
+              </li>
+            }
+          </ul>
+        </li>
+      }
+      @else {
+        <li>
+          <a [routerLink]="item?.link">
+            <i [class]="item?.icon ?? 'ri-home-6-line'"></i>
+            <span class="menu-text">{{item?.title}}</span>
+          </a>
+        </li>
+      }
+    }
+  </ul>
+</div>
+<!-- Sidebar menu ends -->

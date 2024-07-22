@@ -1,0 +1,24 @@
+<app-base-crud-page
+[displayedColumns]="displayedColumns"
+[formControls]="formControls"
+[writableService]="writableService"
+[readableService]="readableService"
+(editingData)="setEditingData($event)">
+
+  <div class="ng-form-create">
+    <app-doctor-select id="doctor-id" label="Doktor" [isRequired]="true" [formControlInput]="formControls.doctorID"  />
+    <app-standard-input inputType="date" id="date" label="Tarih" [isRequired]="true" [formControlInput]="formControls.date" />
+    <app-standard-input inputType="time" id="start-time" label="Başlangıç Saati" [isRequired]="true" [formControlInput]="formControls.startTime" />
+    <app-standard-input inputType="time" id="end-time" label="Bitiş Saati" [isRequired]="true" [formControlInput]="formControls.endTime" />
+  </div>
+
+  <div class="ng-form-edit">
+    <app-doctor-select id="doctor-id" label="Doktor" [isRequired]="true" [formControlInput]="formControls.doctorID"  />
+    <app-standard-input  inputType="date" id="date" label="Tarih" [isRequired]="true" [formControlInput]="formControls.date" />
+    <app-standard-input  inputType="time" id="start-time" label="Başlangıç Saati" [isRequired]="true" [formControlInput]="formControls.startTime" />
+    <app-standard-input  inputType="time" id="end-time" label="Bitiş Saati" [isRequired]="true" [formControlInput]="formControls.endTime" />
+  </div>
+
+
+
+</app-base-crud-page>

@@ -1,0 +1,18 @@
+<app-base-crud-page
+[displayedColumns]="displayedColumns"
+[formControls]="formControls"
+[writableService]="writableService"
+[readableService]="readableService"
+(editingData)="setEditingData($event)">
+
+  <div class="ng-form-create">
+    <app-standard-input id="name" label="Doctor Ünvanı" [isRequired]="true" [formControlInput]="formControls.name" />
+    <app-standard-input id="levelIndex" label="Ünvan Seviyesi" [isRequired]="true" [formControlInput]="formControls.levelIndex" />
+  </div>
+
+  <div class="ng-form-edit">
+    <app-standard-input id="name" label="Doctor Ünvanı" [isRequired]="true" [formControlInput]="formControls.name" />
+    <app-standard-input id="levelIndex" label="Ünvan Seviyesi" [isRequired]="true" [formControlInput]="formControls.levelIndex" />
+  </div>
+
+</app-base-crud-page>

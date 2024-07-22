@@ -1,0 +1,18 @@
+<app-base-crud-page
+[displayedColumns]="displayedColumns"
+[formControls]="formControls"
+[writableService]="writableService"
+[readableService]="readableService"
+(editingData)="setEditingData($event)">
+
+  <div class="ng-form-create">
+    <app-standard-input id="question" label="Soru" [isRequired]="true" [formControlInput]="formControls.question" />
+    <app-standard-input inputType="textarea" id="answer" label="Cevap" [isRequired]="true" [formControlInput]="formControls.answer" />
+  </div>
+
+  <div class="ng-form-edit">
+    <app-standard-input id="question" label="Soru" [isRequired]="true" [formControlInput]="formControls.question" />
+    <app-standard-input inputType="textarea" id="answer" label="Cevap" [isRequired]="true" [formControlInput]="formControls.answer" />
+  </div>
+
+</app-base-crud-page>

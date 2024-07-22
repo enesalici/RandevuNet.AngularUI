@@ -1,0 +1,74 @@
+<!-- Form starts -->
+<form [formGroup]="registerForm" (submit)="register()">
+  <div class="card ">
+    <div class="card-body d-flex justify-content-center">
+      <a routerLink="/" class="auth-logo ">
+        <img src="assets/medflex/assets/images/logo-dark.svg" alt="Bootstrap Gallery">
+      </a>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="auth-box me-2">
+      <h4 class="mb-4">Kişisel Bilgiler</h4>
+      <div class="d-flex">
+        <div class="mb-3 me-1">
+          <label class="form-label">İsim <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" placeholder="İsim" [formControl]="registerForm.controls.firstName">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Soyisim <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" placeholder="Soyisim" [formControl]="registerForm.controls.lastName">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" placeholder="Email" [formControl]="registerForm.controls.email">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Şifre<span class="text-danger">*</span></label>
+        <div class="input-group">
+          <input type="password" class="form-control" placeholder="Şifre"
+            [formControl]="registerForm.controls.password">
+          <button class="btn btn-outline-secondary" type="button">
+            <i class="ri-eye-line text-primary"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Telefon Numarası</label>
+        <input type="text" class="form-control" placeholder="Telefon Numarası"
+          [formControl]="registerForm.controls.phoneNumber">
+      </div>
+    </div>
+
+    <div class="auth-box">
+
+      <h4 class="mb-4">Detaylar</h4>
+      <div class="mb-3">
+        <app-hospital-select label="Hastane" [formControlInput]="registerForm.controls.hospitalID" (selectionChange)="hospitalChanged()"></app-hospital-select>
+      </div>
+      <div class="mb-3">
+        <app-department-select label="Departman"
+          [formControlInput]="registerForm.controls.hospitalDepartmentID" ></app-department-select>
+      </div>
+
+      <div class="mb-3">
+        <app-doctor-title-select label="Ünvan"
+          [formControlInput]="registerForm.controls.doctorTitleID"></app-doctor-title-select>
+      </div>
+      <div class="mb-3 d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Üye Ol</button>
+        <a routerLink="/auth/login" class="btn btn-secondary">Giriş Yap</a>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</form>
+<!-- Form ends -->

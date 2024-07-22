@@ -1,0 +1,17 @@
+<li class="treeview">
+  <a href="javascript:void(0);">
+    <i [class]="item?.icon ?? 'ri-home-6-line'"></i>
+    <span class="menu-text">{{item?.title}}</span>
+  </a>
+  <ul class="treeview-menu" >
+    @for (child of item?.children; track $index) {
+    <li>
+      <a [routerLink]="child.link" >
+        {{child.title}}
+      </a>
+    </li>
+    }
+  </ul>
+</li>
+
+

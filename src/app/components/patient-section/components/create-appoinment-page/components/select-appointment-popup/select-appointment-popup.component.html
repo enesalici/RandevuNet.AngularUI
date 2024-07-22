@@ -1,0 +1,54 @@
+<div class="modal fade show" id="create-appointment" tabindex="-1" aria-modal="true" role="dialog"
+  style="display: block;">
+  <div class="modal-dialog  rounded-10 modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header flex-column d-flex ">
+        <h5 class="text-dark text-capitalize mb-0 p-2 text-gray">
+          {{data.doctor?.doctorTitleName}} {{data.doctor?.firstName}} {{data.doctor?.lastName}}
+        </h5>
+        <p class="text-dark mb-0 text-gray">
+          Randevu almak istediğiniz tarih ve saati seçiniz.
+        </p>
+      </div>
+      <div class="modal-body">
+
+        <mat-tab-group class="mb-5">
+          <div class="px-4">
+
+            @for (item of availableDates; track $index) {
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <div class="d-flex flex-column custom-tab">
+                  <strong class="mb-1">{{item}}</strong>
+                  <!-- <small class="mb-1">Salı</small> -->
+                </div>
+              </ng-template>
+
+              <div class="d-flex flex-wrap justify-content-center align-items-center m-3">
+                @for (schedule of availableAppoinments[item]; track $index) {
+                <button class="btn  fw-500 py-2 mw-80 px-2 text-capitalize m-2"
+                  [ngClass]="selectedTime == schedule.id! ? 'btn-success':'btn-outline-primary'"
+                  (click)="timeSelected(schedule.id!)">
+                  {{schedule.startTime}}
+                </button>
+                }
+
+
+              </div>
+            </mat-tab>
+            }
+          </div>
+        </mat-tab-group>
+
+        <div class="text-end">
+          <input type="reset" class="btn btn-outline-danger me-2 mw-120 rounded-pill py-2 " data-bs-dismiss="modal"
+            aria-label="Close" value="İptal Et" (click)="onNoClick()">
+
+          <input type="submit"
+            class="btn btn-primary rounded-4 fw-500 py-2 rounded-pill mw-120 px-4 text-capitalize text-white "
+            value="Randevu Oluştur" [ngClass]="{'cursor-not-allowed':!selectedTime}" (click)="createAppointmentClicked()">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

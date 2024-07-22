@@ -1,0 +1,33 @@
+<div class="d-flex">
+
+  <form [formGroup]="searchForm">
+    <div class="bg-white py-5 px-3 rounded me-3 ms-3 mb-5 h-auto ">
+      <app-hospital-select id="select-hospital" label="Hastane Seçiniz" [formControlInput]="controls.hospitalID"
+        (selectionChange)="hospitalChanged()"></app-hospital-select>
+      <app-department-select id="select-department" label="Departman Seçiniz" [formControlInput]="controls.departmentID"
+        (selectionChange)="departmentChanged()"></app-department-select>
+      <app-doctor-select id="select-doctor" label="Doktor Seçiniz" [formControlInput]="controls.doctorID"
+        (selectionChange)="doctorChanged()"></app-doctor-select>
+
+
+      <div class="select-date">
+        <label for="date" class="mb-2 text-dark fw-600">Tarih</label>
+
+        <div class="input-group date border custom-err rounded mb-3">
+          <input type="text" id="date-select" class="form-control border-0 " autocomplete="off"
+            [formControl]="controls.date" (focus)="dateFocus($event)" (blur)="dateBlur($event)">
+        </div>
+      </div>
+
+      <div class="d-flex px-3 mt-3 justify-content-end">
+        <app-cancel-button value="İptal" (click)="resetAll()" />
+        <app-submit-button value="Randevu Ara" (click)="searchAppoinment()" />
+      </div>
+    </div>
+  </form>
+
+
+  <div class="ms-3 mb-5 w-100 me-3">
+    @if (isSearchCompleted) { <app-available-doctors [list]="availableDoctorList" /> }
+    @else{<app-message-box>Lütfen uygun randevuları görmek için gerekli alanları doldurun.</app-message-box> }
+  </div>

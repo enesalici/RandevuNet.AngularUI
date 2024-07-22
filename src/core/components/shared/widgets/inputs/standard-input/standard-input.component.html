@@ -1,0 +1,40 @@
+<div class="mb-4">
+  @if (label) {
+  <label [for]="id" class="text-dark-primary mb-2">{{label}}
+    @if (isRequired)
+    {
+    <sup><span class="text-danger"><b>*</b></span></sup>
+    }
+  </label>
+  }
+
+  @if (formControlInput) {
+  <!-- <input [type]="inputType ?? 'text'"  class="border form-control rounded min-width-300" [formControl]="formControlInput" [name]="id"
+    [id]="id" [placeholder]="placeholder??''" (keyup)="keyupEmit($event)"> -->
+
+  @if (inputType=='textarea') {
+  <textarea class="border form-control rounded min-width-300" [formControl]="formControlInput" [name]="id" [id]="id"
+    [placeholder]="placeholder??''" (keyup)="keyupEmit($event)"></textarea>
+  }
+  @else{
+  <input [type]="inputType ?? 'text'" class="border form-control rounded min-width-300" [formControl]="formControlInput"
+    [name]="id" [id]="id" [placeholder]="placeholder??''" (keyup)="keyupEmit($event)">
+  }
+  }
+  @else {
+  <!-- <input [type]="inputType ?? 'text'" class="border form-control rounded min-width-300" [name]="id" [id]="id"
+    [placeholder]="placeholder??''" (keyup)="keyupEmit($event)"> -->
+
+    @if (inputType=='textarea') {
+      <textarea class="border form-control rounded min-width-300"[name]="id" [id]="id"
+        [placeholder]="placeholder??''" (keyup)="keyupEmit($event)"></textarea>
+      }
+      @else{
+      <input [type]="inputType ?? 'text'" class="border form-control rounded min-width-300"
+        [name]="id" [id]="id" [placeholder]="placeholder??''" (keyup)="keyupEmit($event)">
+      }
+  }
+  <div class="d-flex flex-column">
+    <ng-content></ng-content>
+  </div>
+</div>

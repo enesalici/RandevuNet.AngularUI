@@ -1,0 +1,38 @@
+ <!-- Form starts -->
+ <form [formGroup]="loginForm" (submit)="login()">
+
+  <div class="auth-box">
+    <a routerLink="/" class="auth-logo mb-4">
+      <img src="assets/medflex/assets/images/logo-dark.svg" alt="Bootstrap Gallery">
+    </a>
+
+    <h4 class="mb-4">Giriş Yap</h4>
+
+    <div class="mb-3">
+      <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+      <input type="text" id="email" class="form-control" placeholder="Email Giriniz" [formControl]="loginForm.controls.email">
+    </div>
+
+    <div class="mb-2">
+      <label class="form-label" for="pwd">Şifre <span class="text-danger">*</span></label>
+      <div class="input-group">
+        <input type="password" id="pwd" class="form-control" placeholder="Şifre Giriniz" [formControl]="loginForm.controls.password">
+        <button class="btn btn-outline-secondary" type="button">
+          <i class="ri-eye-line text-primary"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end mb-3">
+      <a href="/auth/forgot-password" class="text-decoration-underline">Şifremi Unuttum</a>
+    </div>
+
+    <div class="mb-3 d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Giriş Yap</button>
+      <a href="/auth/register" class="btn btn-secondary">Üye Ol</a>
+    </div>
+
+  </div>
+
+</form>
+<!-- Form ends -->

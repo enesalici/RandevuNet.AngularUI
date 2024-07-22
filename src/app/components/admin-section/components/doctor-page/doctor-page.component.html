@@ -1,0 +1,35 @@
+<app-base-crud-page
+[displayedColumns]="displayedColumns"
+[formControls]="formControls"
+[writableService]="writableService"
+[readableService]="readableService"
+(editingData)="setEditingData($event)">
+
+  <div class="ng-form-create">
+    <app-doctor-title-select id="doctor-title" label="Ünvan" [isRequired]="true" [formControlInput]="formControls.doctorTitleID" />
+    <app-hospital-department-select id="hodpital-department" label="Hastane - Poliklinik" [isRequired]="true" [formControlInput]="formControls.hospitalDepartmentID" />
+    <app-standard-input id="firstName" label="İsim" [isRequired]="true" [formControlInput]="formControls.firstName" />
+    <app-standard-input id="lastName" label="Soyisim" [isRequired]="true" [formControlInput]="formControls.lastName" />
+    <app-standard-input id="email" label="Email" [isRequired]="true" [formControlInput]="formControls.email" />
+    <app-standard-input id="password" label="Şifre" [isRequired]="true" [formControlInput]="formControls.password" />
+    <app-standard-input id="phone-number" label="Telefon No." [isRequired]="true" [formControlInput]="formControls.phoneNumber" />
+    <app-standard-input id="education" label="Eğitim" [isRequired]="true" [formControlInput]="formControls.education" />
+    <app-standard-input id="about" label="Hakkında" [isRequired]="true" [formControlInput]="formControls.about" />
+    <app-standard-input id="profile-photo" label="Profil Fotoğrafı" [isRequired]="true" [formControlInput]="formControls.profilePhoto" />
+    <app-standard-input id="about" label="Hakkında" [isRequired]="true" [formControlInput]="formControls.about" />
+  </div>
+
+  <div class="ng-form-edit">
+    <app-doctor-title-select id="doctor-title" label="Ünvan" [isRequired]="true" [formControlInput]="formControls.doctorTitleID" />
+    <app-hospital-department-select id="hodpital-department" label="Hastane - Poliklinik" [isRequired]="true" [formControlInput]="formControls.hospitalDepartmentID" />
+    <app-standard-input id="firstName" label="İsim" [isRequired]="true" [formControlInput]="formControls.firstName" />
+    <app-standard-input id="lastName" label="Soyisim" [isRequired]="true" [formControlInput]="formControls.lastName" />
+    <app-standard-input id="phone-number" label="Telefon No." [isRequired]="true" [formControlInput]="formControls.phoneNumber" />
+    <app-standard-input id="education" label="Eğitim" [isRequired]="true" [formControlInput]="formControls.education" />
+    <app-standard-input id="about" label="Hakkında" [isRequired]="true" [formControlInput]="formControls.about" />
+    <app-standard-input id="profile-photo" label="Profil Fotoğrafı" [isRequired]="true" [formControlInput]="formControls.profilePhoto" />
+    <app-standard-input id="about" label="Hakkında" [isRequired]="true" [formControlInput]="formControls.about" />
+
+  </div>
+
+</app-base-crud-page>

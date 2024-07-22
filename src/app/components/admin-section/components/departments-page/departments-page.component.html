@@ -1,0 +1,16 @@
+<app-base-crud-page
+[displayedColumns]="displayedColumns"
+[formControls]="formControls"
+[writableService]="writableService"
+[readableService]="readableService"
+(editingData)="setEditingData($event)">
+
+  <div class="ng-form-create">
+    <app-standard-input id="department-name" label="Departman Adı" [isRequired]="true" [formControlInput]="formControls.name" />
+  </div>
+
+  <div class="ng-form-edit">
+    <app-standard-input id="department-name" label="Departman Adı" [isRequired]="true" [formControlInput]="formControls.name" />
+  </div>
+
+</app-base-crud-page>

@@ -1,0 +1,29 @@
+<div class="grid gap-4">
+  @for (item of list ; track $index) {
+  <div class="g-col-4 card ">
+    <div class="p-3 mh-100">
+      <div class="d-flex flex-column align-items-center ju">
+        <!-- @if(item.profilePhoto)
+        {
+          <img [src]=" item.profilePhoto" class="img-4x rounded-5 mb-3" alt="Doctor Dashboard">
+        }
+        @else { -->
+        <div class="icon-box lg me-3 mb-3 bg-primary-subtle rounded-circle text-primary">
+          {{item.firstName?.toUpperCase()?.substring(0,1)}} {{item.lastName?.toUpperCase()?.substring(0,1)}}
+        </div>
+        <!-- } -->
+
+        <div class="">
+          <h6 class="mb-1">{{item.doctorTitleName}} {{item.firstName}} {{item.lastName}}</h6>
+          <small class="mb-1">En Yakın Tarih: 12/07/2024</small>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-primary btn-sm mx-3 mb-3" (click)="chooseAppointment(item)">
+      Randevu Al
+    </button>
+  </div>
+  }
+</div>
+    @if (list.length <= 0) { <app-message-box>Aradağınız kriterlere uygun randevu bulanamadı.</app-message-box> }
+

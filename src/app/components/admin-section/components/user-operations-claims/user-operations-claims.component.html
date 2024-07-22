@@ -1,0 +1,18 @@
+<app-base-crud-page
+[displayedColumns]="displayedColumns"
+[formControls]="formControls"
+[writableService]="writableService"
+[readableService]="readableService"
+(editingData)="setEditingData($event)">
+
+  <div class="ng-form-create">
+    <app-user-select id="user-name" label="Kullanıcı" [isRequired]="true" [formControlInput]="formControls.userId" />
+    <app-operation-claim-select id="operation-name" label="Operation Claim" [isRequired]="true" [formControlInput]="formControls.operationClaimId" />
+  </div>
+
+  <div class="ng-form-edit">
+    <app-user-select id="user-name" label="Kullanıcı" [isRequired]="true" [formControlInput]="formControls.userId" />
+    <app-operation-claim-select id="operation-name" label="Operation Claim" [isRequired]="true" [formControlInput]="formControls.operationClaimId" />
+  </div>
+
+</app-base-crud-page>

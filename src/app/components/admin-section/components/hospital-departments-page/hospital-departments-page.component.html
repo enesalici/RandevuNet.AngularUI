@@ -1,0 +1,18 @@
+<app-base-crud-page
+[displayedColumns]="displayedColumns"
+[formControls]="formControls"
+[writableService]="writableService"
+[readableService]="readableService"
+(editingData)="setEditingData($event)">
+
+  <div class="ng-form-create">
+    <app-hospital-select id="hospital-name" label="Hastane Adı" [isRequired]="true" [formControlInput]="formControls.hospitalID" (selectionChange)="hospitalChanged()"  />
+    <app-department-select id="department-name" label="Poliklinik Adı" [isRequired]="true" [formControlInput]="formControls.departmentID" />
+  </div>
+
+  <div class="ng-form-edit">
+    <app-hospital-select id="hospital-name" label="Hastane Adı" [isRequired]="true" [formControlInput]="formControls.hospitalID"  (selectionChange)="hospitalChanged()"/>
+    <app-department-select id="department-name" label="Poliklinik Adı" [isRequired]="true" [formControlInput]="formControls.departmentID"/>
+  </div>
+
+</app-base-crud-page>
