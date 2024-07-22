@@ -7,19 +7,16 @@ import { doctorRoutes } from './routes/doctor.routes';
 import { patientRoutes } from './routes/patient.routes';
 import { LoginPageComponent } from './components/auth-section/components/login-page/login-page.component';
 import { ForbidenPageComponent } from './components/public-section/components/forbiden-page/forbiden-page.component';
+import { AuthLayoutComponent } from './components/auth-section/layouts/auth-layout/auth-layout.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: PublicLayoutComponent,
+    component: AuthLayoutComponent,
     children:[
       {
         path: '',
-        component: HomePageComponent,
-      },
-      {
-        path: 'forbiden',
-        component: ForbidenPageComponent,
+        component: LoginPageComponent,
       },
     ]
   },
@@ -27,7 +24,6 @@ export const routes: Routes = [
   ...adminRoutes,
   ...doctorRoutes,
   ...patientRoutes,
-
   {
     path: '**',
     component: ForbidenPageComponent,
